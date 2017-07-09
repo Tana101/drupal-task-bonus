@@ -24,95 +24,6 @@
 ?>
 <div id="page-wrapper"><div id="page">
 
-	<div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
-		<div id="top_section">
-			<div class="section clearfix">
-				<div class="structure-container">
-
-					<?php if ($logo): ?>
-						<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-							<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-						</a> <!-- /#logo -->
-					<?php endif; ?>
-
-					<?php if ($main_menu): ?>
-						<div id="main_menu" class="nav">
-							<?php print theme('links__system_main_menu', array(
-								'links' => $main_menu,
-								'attributes' => array(
-									'id' => 'main_menu_links',
-									'class' => array('links', 'clearfix'),
-								),
-								'heading' => array(
-									'text' => t('Main menu'),
-									'level' => 'h2',
-									'class' => array('element-invisible'),
-								),
-							)); ?>
-						</div> <!-- /.nav, ***desktop menu*** -->
-
-						<div id="main_menu" class="mobile-nav">
-							<label id="menu_btn" for="menu_check">
-								<span id="menu_icon"><i class="fa fa-bars"></i></span>
-							</label>
-							<input type="checkbox" id="menu_check" />
-
-							<?php print theme('links__system_main_menu', array(
-								'links' => $main_menu,
-								'attributes' => array(
-									'id' => 'mobile_menu_links',
-									'class' => array('links', 'clearfix'),
-								),
-								'heading' => array(
-									'text' => t('Main menu'),
-									'level' => 'h2',
-									'class' => array('element-invisible'),
-								),
-							)); ?>
-						</div> <!-- /.mobile-nav, ***mobile menu*** -->
-					<?php endif; ?>
-
-				</div>
-			</div>
-		</div> <!-- /#top_section -->
-
-		<?php if ($page['banner']): ?>
-			<div id="banner_section">
-				<div id="banner_wrapper">
-					
-					<div class="overlay">
-						<div class="section clearfix">
-							
-							<div class="middle-vert-outer-wrap">
-								<div class="middle-vert-block">
-
-									<div class="structure-container">
-
-										<?php if ($site_slogan): ?>
-											<div id="banner_site_slogan">
-												<?php print $site_slogan; ?>
-											</div>
-										<?php endif; ?>
-
-										<!-- banner content -->
-										<?php print render($page['banner']); ?>
-
-									</div>
-
-								</div>
-							</div>
-							
-						</div>
-					</div>
-
-					<div id="banner_bg"></div>
-
-				</div>
-			</div> <!-- /#banner_section -->
-		<?php endif; ?>
-	</div> <!-- /#header -->
-
-
 	<?php if ($messages): ?>
 		<div id="messages">
 			<div class="section clearfix">
@@ -121,73 +32,143 @@
 		</div> <!-- /#messages -->
 	<?php endif; ?>
 
-	<?php if ($page['next_event']): ?>
-		<div class="light-gray-block">
-			<!-- next_event content -->
-			<?php print render($page['next_event']); ?>
+
+	<div id="header_section">
+		<div class="container-fluid red-block">
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-12">
+
+						<?php if ($logo): ?>
+							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+								<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+							</a> <!-- /#logo -->
+						<?php endif; ?>
+
+					</div>
+					<div class="col-xs-12">
+						A team of self confessed geeks who are all about great digital design
+					</div>
+					<div class="col-xs-12">
+						bottom arrow
+					</div>
+				</div>
+			</div>
 		</div>
-	<?php endif; ?>
+	</div> <!-- /#header_section -->
 
-	<div id="main_wrapper" class="clearfix">
-		<div id="main" class="clearfix">
 
-			<?php if ($page['content']): ?>
-				<?php // removing default text on home page ?>
-				<?php if(drupal_is_front_page()): ?>
-					<?php unset($page['content']['system_main']['default_message']); ?>
-				<?php endif; ?>
+	<div id="infographics_section">
+		<div class="container-fluid light-gray-block">
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-12">
+						<img src="sites/all/themes/geek_label/images/infographic-problem.png" alt="Infographic Problem">
+					</div>
+					<div class="col-xs-12">
+						Some agencies love <span class="highlight-red">design</span>, but don’t know how to build
+					</div>
+					<div class="col-xs-12">
+						bottom arrow
+					</div>
+				</div>
+			</div>
+		</div> <!-- /infographic problem block -->
 
-				<!-- selected page content -->
-				<?php print render($page['content']); ?>
-			<?php endif; ?>
+		<div class="container-fluid light-gray-block">
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-12">
+						<img src="sites/all/themes/geek_label/images/infographic-clueless.png" alt="Infographic Clueless">
+					</div>
+					<div class="col-xs-12">
+						Some agencies know how to <span class="highlight-red">build</span> but can’t do design
+					</div>
+					<div class="col-xs-12">
+						bottom arrow
+					</div>
+				</div>
+			</div>
+		</div> <!-- /infographic clueless block -->
 
+		<div class="container-fluid light-gray-block">
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-12">
+						<img src="sites/all/themes/geek_label/images/infographic-solved.png" alt="Infographic Solved">
+					</div>
+					<div class="col-xs-12">
+						We love <span class="highlight-red">both</span>
+					</div>
+					<div class="col-xs-12">
+						bottom arrow
+					</div>
+				</div>
+			</div>
+		</div> <!-- /infographic solved block -->
+	</div> <!-- /#infographics_section -->
+
+
+	<div id="services_section">
+		<div class="container-fluid white-block">
+			<div class="row">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-lg-3">
+							<div class="icon">
+								<img src="sites/all/themes/geek_label/images/red-dev-icon.png" alt="Web Development Icon">
+							</div>
+							<div class="label">
+								Web Development
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-lg-3">
+							<div class="icon">
+								<img src="sites/all/themes/geek_label/images/red-design-icon.png" alt="Design Icon">
+							</div>
+							<div class="label">
+								Design
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-lg-3">
+							<div class="icon">
+								<img src="sites/all/themes/geek_label/images/red-branding-icon.png" alt="Branding Icon">
+							</div>
+							<div class="label">
+								Branding
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-lg-3">
+							<div class="icon">
+								<img src="sites/all/themes/geek_label/images/red-ux-icon.png" alt="UX Research Icon">
+							</div>
+							<div class="label">
+								UX Research
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-12">
+							bottom arrow
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div> <!-- /#main_wrapper -->
+	</div> <!-- /#services_section -->
 
-	<?php if ($page['sub_footer']): ?>
+
+	<?php //if ($page['sub_footer']): ?>
 		<div id="sub_footer">
 			<div class="light-gray-block"></div>
-			
-			<div class="slate-gray-block"></div>
 
 			<div class="white-block">
 				<!-- sub_footer content -->
-				<?php print render($page['sub_footer']); ?>
+				<?php //print render($page['sub_footer']); ?>
 			</div>
 		</div> <!-- /#sub_footer -->
-	<?php endif; ?>
-
-	<div class="dark-gray-block">
-		<div id="footer" class="block-content structure-container">
-			<div class="section clearfix">
-
-				<div id="social_icons" class="highlight-teal">
-					<ul class="fa-ul">
-						<li>
-							<a href="https://www.facebook.com" target="_blank">
-								<i class="fa-li fa fa-facebook" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li>
-							<a href="https://twitter.com" target="_blank">
-								<i class="fa-li fa fa-twitter" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li>
-							<a href="https://plus.google.com" target="_blank">
-								<i class="fa-li fa fa-google-plus" aria-hidden="true"></i>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<hr>
-				<div id="footer_text">
-					<!-- footer content -->
-					<?php print render($page['footer']); ?>
-				</div>
-
-			</div>
-		</div> <!-- /.block-content, /#footer -->
-	</div>
+	<?php //endif; ?>
 
 </div></div> <!-- /#page, /#page-wrapper -->

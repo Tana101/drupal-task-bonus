@@ -1,0 +1,25 @@
+#header_section {
+	font-size: 20px;
+	color: $white;
+
+	img {
+		max-width: 300px;
+	}
+}
+
+#infographics_section {
+	font-size: 30px;
+	color: $dark_gray_text;
+
+	img {
+		max-width: 500px;
+	}
+}
+
+#services_section {
+	.icon {
+		img {
+			max-width: 220px;
+		}
+	}
+}

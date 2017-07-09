@@ -67,18 +67,24 @@ hr {
 
 .block {
 	display: block;
-	height: 100%;
+	position: relative;
 	width: 100%;
+	height: 100vh;
 }
 
-.white-block {
+.red-block {
 	@extend .block;
-	background: $white;
+	background: $standard_red;
 }
 
 .light-gray-block {
 	@extend .block;
 	background: $light_gray_panel;
+}
+
+.white-block {
+	@extend .block;
+	background: $white;
 }
 
 .block-content {

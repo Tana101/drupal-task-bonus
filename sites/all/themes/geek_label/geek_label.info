@@ -1,5 +1,5 @@
 
-name = Open Charity
+name = Geek Label
 description = A theme for an organisation that hosts events in London about open source software and solution for charities.
 core = 7.x
 
@@ -9,10 +9,6 @@ stylesheets[all][] = css/app.css
 
 
 ; Site Regions
-regions[header] = Header
-regions[banner] = Banner
 regions[help] = Help
-regions[next_event] = Next Event
+regions[header] = Header
 regions[content] = Content
-regions[sub_footer] = Sub Footer
-regions[footer] = Footer
