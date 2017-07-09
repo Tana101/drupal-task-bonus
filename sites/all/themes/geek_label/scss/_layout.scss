@@ -1,0 +1,104 @@
+/* <<<<< setting standard width limits that will be used responsively >>>>> */
+$smallScreen: 640px;		/* Small Devices, Phones */
+$mediumScreen: 900px;		/* Medium Devices, Tablets and Small Laptops */
+$largeScreen: 1200px;		/* Large Devices, Wide Screens */
+
+$stdStructureWidth: 1100px;
+$edgeStructureWidth: 1260px;
+
+
+
+
+/* <<<<< setting default css to be used on all key elements >>>>> */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	width: 100%;
+}
+
+.structure-container {
+	display: block;
+	max-width: $stdStructureWidth;
+	margin: 0 auto;
+}
+
+// vertically aligns child blocks in the parent
+.middle-vert-outer-wrap {
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	.middle-vert-block {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+
+
+
+/* <<<<< styling block-user-login block >>>>> */
+#block-user-login {
+	font-family: $open_sans_regular;
+	text-align: center;
+	padding-top: 40px;
+
+	li {
+		list-style-type: none;
+	}
+}
+
+
+
+
+/* <<<<< styling header block >>>>> */
+#header {
+	
+}
+
+
+
+
+/* <<<<< styling LAYOUT responsive display >>>>> */
+
+/* Largest Devices */
+@media only screen and (min-width : ($largeScreen + 1)) {
+	// style here
+}
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : $largeScreen) {
+	// style here
+}
+
+
+
+/* Medium Devices, Tablets and Small Laptops */
+@media only screen and (max-width : $mediumScreen) {
+	// style here
+}
+
+
+
+/* Small Devices, Phones */
+@media only screen and (max-width : $smallScreen) {
+	// style here
+}

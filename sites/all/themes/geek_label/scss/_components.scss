@@ -1,0 +1,213 @@
+@mixin border-radius($radius) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin el-transition($duration) {
+	-moz-transition: all $duration ease-out;
+	-webkit-transition: all $duration ease-out;
+	-ms-transition: all $duration ease-out;
+	-o-transition: all $duration ease-out;
+	transition: all $duration ease-out;
+}
+
+@mixin el-rotate($angle) {
+	-moz-transform: rotate($angle);
+	-webkit-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-o-transform: rotate($angle);
+	transform: rotate($angle);
+}
+
+@mixin el-translate($x, $y) {
+	-moz-transform: translate($x, $y);
+	-webkit-transform: translate($x, $y);
+	-ms-transform: translate($x, $y);
+	-o-transform: translate($x, $y);
+	transform: translate($x, $y);
+}
+
+@mixin el-shadow($shadow_properties) {
+	-moz-box-shadow: $shadow_properties;
+	-webkit-box-shadow: $shadow_properties;
+	-o-box-shadow: $shadow_properties;
+	box-shadow: $shadow_properties;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $museo_500;
+	font-weight: bold;
+	color: $dark_gray_text;
+	text-transform: uppercase;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #000;
+	display: block;
+	height: 1px;
+	margin: 1em 0;
+	padding: 0;
+}
+
+
+
+
+.highlight-red {
+	color: $standard_red;
+}
+
+
+
+
+.block {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.white-block {
+	@extend .block;
+	background: $white;
+}
+
+.light-gray-block {
+	@extend .block;
+	background: $light_gray_panel;
+}
+
+.block-content {
+	padding: 40px 0;
+}
+
+.btn {
+	a {
+		display: block;
+		background: none;
+		font-family: $museo_500;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		padding: 10px 24px;
+		border: 2px solid #000;
+
+		@include border-radius(3px);
+
+		&:hover {
+			@include el-transition(0.4s);
+		}
+	}
+}
+
+.btn-hollow {
+	@extend .btn;
+
+	a {
+		background: none;
+		border-color: $standard_red;
+		color: $standard_red;
+
+		&:hover {
+			background: $dark_red;
+			color: $white;
+		}
+	}
+}
+
+.btn-full {
+	@extend .btn;
+
+	a {
+		background: $standard_red;
+		border-color: $standard_red;
+		color: $white;
+
+		&:hover {
+			background: $dark_red;
+			color: $white;
+		}
+	}
+}
+
+.dot-carousel-block {
+	.dot {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background: $light_gray_carousel_el;
+		margin-right: 5px;
+
+		@include border-radius(50%);
+	}
+
+	.active {
+		background: $dark_gray_text;
+	}
+
+	/* hiding radio button */
+	input[type=radio] {
+		display: none;
+	}
+
+	/* all styling is done on the label element */
+	label {
+		display: inline-block;
+		background: $light_gray_carousel_el;
+		overflow: hidden;
+		text-indent: -999px;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+
+		@include border-radius(50%);
+
+		&:hover {
+			background: $standard_red;
+			cursor: pointer;
+		}
+	}
+	
+	input:checked + label {
+		background: $dark_gray_text;
+	}
+
+	&:hover {
+		cursor: default;
+	}
+}
+
+.carousel-arrow {
+	display: block;
+	width: 15px;
+	height: 15px;
+	color: $light_gray_carousel_el;
+	border-color: $light_gray_carousel_el;
+	position: absolute;
+	top: 55%;
+	border-bottom: 4px solid;
+	border-left: 4px solid;
+
+	&:active {
+		color: $dark_gray_text;
+		border-color: $dark_gray_text;
+	}
+}
+
+.prev {
+	left: 48px;
+
+	@include el-rotate(45deg);
+}
+
+.next {
+	right: 48px;
+
+	@include el-rotate(-135deg);
+}

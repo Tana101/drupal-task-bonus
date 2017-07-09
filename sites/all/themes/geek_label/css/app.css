@@ -1,0 +1,194 @@
+/* these are the site colors, the only colors to be used to maintain a uniform look */
+/* shades of teal and blue */
+/* shades of gray */
+/* shades of white */
+@font-face {
+  font-family: 'museo-sans-300';
+  src: url("../fonts/museo-sans-300.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'museo-sans-500';
+  src: url("../fonts/museo-sans-300.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url("../fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OpenSans-SemiBold';
+  src: url("../fonts/OpenSans-SemiBold.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "museo-sans-500", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #414042;
+  text-transform: uppercase; }
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0; }
+
+.highlight-red {
+  color: #d83454; }
+
+.block, .white-block, .light-gray-block {
+  display: block;
+  height: 100%;
+  width: 100%; }
+
+.white-block {
+  background: #ffffff; }
+
+.light-gray-block {
+  background: #f1f2f2; }
+
+.block-content {
+  padding: 40px 0; }
+
+.btn a, .btn-hollow a, .btn-full a {
+  display: block;
+  background: none;
+  font-family: "museo-sans-500", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 2px solid #000;
+  border-radius: 3px; }
+  .btn a:hover, .btn-hollow a:hover, .btn-full a:hover {
+    transition: all 0.4s ease-out; }
+
+.btn-hollow a {
+  background: none;
+  border-color: #d83454;
+  color: #d83454; }
+  .btn-hollow a:hover {
+    background: #c0314a;
+    color: #ffffff; }
+
+.btn-full a {
+  background: #d83454;
+  border-color: #d83454;
+  color: #ffffff; }
+  .btn-full a:hover {
+    background: #c0314a;
+    color: #ffffff; }
+
+.dot-carousel-block {
+  /* hiding radio button */
+  /* all styling is done on the label element */ }
+  .dot-carousel-block .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #a7aeb0;
+    margin-right: 5px;
+    border-radius: 50%; }
+  .dot-carousel-block .active {
+    background: #414042; }
+  .dot-carousel-block input[type=radio] {
+    display: none; }
+  .dot-carousel-block label {
+    display: inline-block;
+    background: #a7aeb0;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%; }
+    .dot-carousel-block label:hover {
+      background: #d83454;
+      cursor: pointer; }
+  .dot-carousel-block input:checked + label {
+    background: #414042; }
+  .dot-carousel-block:hover {
+    cursor: default; }
+
+.carousel-arrow {
+  display: block;
+  width: 15px;
+  height: 15px;
+  color: #a7aeb0;
+  border-color: #a7aeb0;
+  position: absolute;
+  top: 55%;
+  border-bottom: 4px solid;
+  border-left: 4px solid; }
+  .carousel-arrow:active {
+    color: #414042;
+    border-color: #414042; }
+
+.prev {
+  left: 48px;
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.next {
+  right: 48px;
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg); }
+
+/* <<<<< setting standard width limits that will be used responsively >>>>> */
+/* Small Devices, Phones */
+/* Medium Devices, Tablets and Small Laptops */
+/* Large Devices, Wide Screens */
+/* <<<<< setting default css to be used on all key elements >>>>> */
+* {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  width: 100%; }
+
+.structure-container {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto; }
+
+.middle-vert-outer-wrap {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+  .middle-vert-outer-wrap .middle-vert-block {
+    display: table-cell;
+    vertical-align: middle; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.text-center {
+  text-align: center; }
+
+/* <<<<< styling block-user-login block >>>>> */
+#block-user-login {
+  font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 40px; }
+  #block-user-login li {
+    list-style-type: none; }
+
+/* <<<<< styling header block >>>>> */
+/* <<<<< styling LAYOUT responsive display >>>>> */
+/* Largest Devices */
+/* Large Devices, Wide Screens */
+/* Medium Devices, Tablets and Small Laptops */
+/* Small Devices, Phones */
