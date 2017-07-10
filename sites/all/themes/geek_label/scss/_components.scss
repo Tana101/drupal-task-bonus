@@ -30,6 +30,14 @@
 	transform: translate($x, $y);
 }
 
+@mixin el-double-transform($firstTransEl, $secondTransEl) {
+	-moz-transform: $firstTransEl $secondTransEl;
+	-webkit-transform: $firstTransEl $secondTransEl;
+	-ms-transform: $firstTransEl $secondTransEl;
+	-o-transform: $firstTransEl $secondTransEl;
+	transform: $firstTransEl $secondTransEl;
+}
+
 @mixin el-shadow($shadow_properties) {
 	-moz-box-shadow: $shadow_properties;
 	-webkit-box-shadow: $shadow_properties;
@@ -40,10 +48,13 @@
 
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $museo_500;
-	font-weight: bold;
+	font-family: $museo_300;
 	color: $dark_gray_text;
-	text-transform: uppercase;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+
+	@include el-translate(-50%, 0);
 }
 
 hr {
@@ -86,6 +97,33 @@ hr {
 	@extend .block;
 	background: $white;
 }
+
+
+
+
+.form-group {
+	margin-bottom: 20px;
+
+	.form-control {
+		border: 2px solid $medium_gray_border;
+		min-height: 60px;
+		color: $dark_gray_text;
+		font-size: 20px;
+		padding: 10px 15px;
+	}
+}
+
+.gl-btn {
+	padding: 10px 15px;
+	min-height: 60px;
+	font-size: 20px;
+
+	@include el-transition(0.4s);
+}
+
+
+
+
 
 .block-content {
 	padding: 40px 0;
@@ -189,16 +227,137 @@ hr {
 	}
 }
 
-.carousel-arrow {
+
+
+
+.gl-chevron-arrow {
 	display: block;
-	width: 15px;
-	height: 15px;
+	position: absolute;
+	width: 12px;
+	height: 12px;
 	color: $light_gray_carousel_el;
 	border-color: $light_gray_carousel_el;
+	border-bottom: 2px solid;
+	border-left: 2px solid;
+}
+
+
+
+
+.gl-circle-btn {
+	$circleSize : 48px; /* The size of the round button */
+
 	position: absolute;
+	z-index: 3;
+	background: none;
+	width: $circleSize;
+	height: $circleSize;
+	left: 50%;
+	bottom: 50px;
+	border: 4px solid $white;
+
+	@include border-radius(50%);
+	@include el-translate(-50%, 0);
+	@include el-transition(0.4s);
+
+	.inner-circle {
+		$circSizeDiff : 7px;
+
+		background: #000;
+		position: absolute;
+		width: $circleSize - $circSizeDiff;
+		height: $circleSize - $circSizeDiff;
+		top: 50%;
+		left: 50%;
+
+		@include border-radius(50%);
+		@include el-translate(-50%, -50%);
+		@include el-transition(0.4s);
+
+		/* inherits .gl-chevron-arrow */
+		.bottom-block-arrow {
+			@extend .gl-chevron-arrow;
+
+			position: absolute;
+			top: 45%;
+			left: 50%;
+
+			@include el-double-transform(translate(-50%, -50%), rotate(-45deg));
+			@include el-transition(0.4s);
+		}
+	}
+
+	.circle-shadow {
+		$shadowSize : $circleSize;
+
+		position: absolute;
+		background: none;
+		width: $shadowSize;
+		height: $shadowSize;
+		top: -2px;
+		left: 50%;
+
+		@include el-shadow(0px 0px 10px 1px rgba(0,0,0,0.2));
+		@include border-radius(50%);
+		@include el-translate(-50%, 0);
+	}
+}
+
+/* styling round button appearance */
+.gl-full-red-round-btn {
+	@extend .gl-circle-btn;
+
+	border: 2px solid $white;
+
+	.inner-circle {
+		background: $standard_red;
+
+		.bottom-block-arrow {
+			color: $white;
+			border-color: $white;
+		}
+
+		&:hover {
+			background: $dark_red;
+		}
+	}
+}
+
+.gl-hollow-dark-round-btn {
+	@extend .gl-circle-btn;
+
+	border: 2px solid $dark_gray_text;
+
+	.inner-circle {
+		background: none;
+
+		.bottom-block-arrow {
+			color: $dark_gray_text;
+			border-color: $dark_gray_text;
+		}
+
+		&:hover {
+			background: $dark_red;
+
+			.bottom-block-arrow {
+				color: $white;
+				border-color: $white;
+			}
+		}
+	}
+}
+
+
+
+
+/* inherits .gl-chevron-arrow */
+.gl-carousel-arrow {
+	@extend .gl-chevron-arrow;
+
+	color: $light_gray_carousel_el;
+	border-color: $light_gray_carousel_el;
 	top: 55%;
-	border-bottom: 4px solid;
-	border-left: 4px solid;
+	z-index: 2;
 
 	&:active {
 		color: $dark_gray_text;
@@ -206,14 +365,16 @@ hr {
 	}
 }
 
-.prev {
-	left: 48px;
-
+.left-carousel-arrow {
+	@extend .gl-carousel-arrow;
 	@include el-rotate(45deg);
+
+	left: 48px;
 }
 
-.next {
-	right: 48px;
-
+.right-carousel-arrow {
+	@extend .gl-carousel-arrow;
 	@include el-rotate(-135deg);
+
+	right: 48px;
 }

@@ -8,6 +8,10 @@ core = 7.x
 stylesheets[all][] = css/app.css
 
 
+; Site JS
+scripts[] = js/production.js
+
+
 ; Site Regions
 regions[help] = Help
 regions[header] = Header

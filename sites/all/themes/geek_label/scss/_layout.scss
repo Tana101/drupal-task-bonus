@@ -1,10 +1,10 @@
 /* <<<<< setting standard width limits that will be used responsively >>>>> */
-$smallScreen: 640px;		/* Small Devices, Phones */
-$mediumScreen: 900px;		/* Medium Devices, Tablets and Small Laptops */
-$largeScreen: 1200px;		/* Large Devices, Wide Screens */
+$extraSmallScreen: 768px;		/* Extra Small Devices 	(<768px) 	*/
+$smallScreen: 768px;			/* Small Devices 		(>=768px) 	*/
+$mediumScreen: 992px;			/* Medium Devices 		(>=992px) 	*/
+$largeScreen: 1200px;			/* Medium Devices 		(>=1200px) 	*/
 
-$stdStructureWidth: 1100px;
-$edgeStructureWidth: 1260px;
+$innerStructureWidth: 1050px;
 
 
 
@@ -26,10 +26,33 @@ body {
 	text-align: center;
 }
 
-.structure-container {
+
+
+.vertical-center {
+	min-height: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	align-items: center;
+}
+
+
+
+.arrow-container {
+	position: relative;
+}
+
+.inner-container {
 	display: block;
-	max-width: $stdStructureWidth;
-	margin: 0 auto;
+	max-width: $innerStructureWidth;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-container {
+	@extend .inner-container;
+
+	max-width: 450px;
 }
 
 // vertically aligns child blocks in the parent
@@ -80,28 +103,28 @@ body {
 
 /* <<<<< styling LAYOUT responsive display >>>>> */
 
-/* Largest Devices */
-@media only screen and (min-width : ($largeScreen + 1)) {
+/* Large Devices */
+@media only screen and (min-width : $largeScreen) {
 	// style here
 }
 
 
 
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : $largeScreen) {
+/* Medium Devices */
+@media only screen and (min-width : $mediumScreen) {
 	// style here
 }
 
 
 
-/* Medium Devices, Tablets and Small Laptops */
-@media only screen and (max-width : $mediumScreen) {
+/* Small Devices */
+@media only screen and (min-width : $smallScreen) {
 	// style here
 }
 
 
 
-/* Small Devices, Phones */
-@media only screen and (max-width : $smallScreen) {
+/* Smallest Devices */
+@media only screen and (max-width : $extraSmallScreen) {
 	// style here
 }

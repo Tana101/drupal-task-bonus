@@ -1,25 +1,164 @@
+h1 {
+	font-size: 60px;
+}
+
+
+
+
 #header_section {
 	font-size: 20px;
 	color: $white;
 
 	img {
-		max-width: 300px;
+		max-height: 150px;
 	}
 }
+
+
+
 
 #infographics_section {
 	font-size: 30px;
 	color: $dark_gray_text;
 
 	img {
-		max-width: 500px;
+		max-height: 300px;
 	}
 }
 
+
+
+
 #services_section {
-	.icon {
+	.padding-block {
+		padding-bottom: 30px;
+
+		.icon {
+			img {
+				max-height: 200px;
+			}
+
+			padding-bottom: 50px;
+		}
+
+		.icon-label {
+			height: 80px;
+			font-size: 18px;
+		}
+
+		&:last-of-type {
+			padding-bottom: 0px;
+		}
+	}
+}
+
+
+
+
+#clients_section {
+	.client-img-block {
 		img {
-			max-width: 220px;
+			max-height: 70px;
+		}
+	}
+}
+
+
+
+
+#location_section {
+	
+}
+
+
+
+
+#contact_section {
+	.contact-btn {
+		@extend .gl-btn;
+
+		background: $standard_red;
+		color: $white;
+
+		&:hover {
+			background: $dark_red;
+		}
+	}
+}
+
+
+
+
+/* <<<<< styling STYLE responsive display >>>>> */
+
+/* Small Devices */
+@media only screen and (min-width : $smallScreen) {
+	#services_section {
+		.padding-block {
+			.icon {
+				img {
+					max-height: 100px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/* Medium Devices */
+@media only screen and (min-width : $mediumScreen) {
+	#services_section {
+		.padding-block {
+			.icon {
+				img {
+					max-height: 100px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/* Large Devices */
+@media only screen and (min-width : $largeScreen) {
+	#services_section {
+		.padding-block {
+			.icon {
+				img {
+					max-height: 200px;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* Smallest Devices */
+@media only screen and (max-width : $extraSmallScreen) {
+	#header_section, #infographics_section {
+		img {
+			width: 100%;
+		}
+	}
+
+	#services_section {
+		.padding-block {
+			.icon {
+				img {
+					max-height: 80px;
+				}
+
+				padding-bottom: 0px;
+			}
+
+			.icon-label {
+				text-align: left;
+			}
 		}
 	}
 }
