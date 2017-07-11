@@ -57,6 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 	@include el-translate(-50%, 0);
 }
 
+h1 {
+	font-size: 60px;
+}
+
 hr {
 	border: 0;
 	border-top: 1px solid #000;
@@ -181,16 +185,8 @@ hr {
 }
 
 .dot-carousel-block {
-	.dot {
-		display: inline-block;
-		width: 10px;
-		height: 10px;
-		background: $light_gray_carousel_el;
-		margin-right: 5px;
-
-		@include border-radius(50%);
-	}
-
+	display: block;
+	
 	.active {
 		background: $dark_gray_text;
 	}
@@ -206,9 +202,9 @@ hr {
 		background: $light_gray_carousel_el;
 		overflow: hidden;
 		text-indent: -999px;
-		width: 10px;
-		height: 10px;
-		margin-right: 5px;
+		width: 13px;
+		height: 13px;
+		margin-right: 13px;
 
 		@include border-radius(50%);
 
@@ -356,7 +352,8 @@ hr {
 
 	color: $light_gray_carousel_el;
 	border-color: $light_gray_carousel_el;
-	top: 55%;
+	top: 50%;
+	margin-top: 27px;
 	z-index: 2;
 
 	&:active {

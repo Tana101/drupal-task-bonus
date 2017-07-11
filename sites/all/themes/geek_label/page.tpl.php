@@ -22,14 +22,20 @@
  *
  */
 ?>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ06nFqjdgjf-ARTSCr-XENfRuQJthm8I&callback=initMap"></script>
+
 <div id="page-wrapper"><div id="page">
 
-	<?php if ($messages): ?>
-		<div id="messages">
-			<div class="section clearfix">
-				<?php print $messages; ?>
+	<?php if ($page['help']): ?>
+		<div class="container-fluid white-block">
+			<div class="row">
+				<div class="container">
+					<!-- help content -->
+					<?php print render($page['help']); ?>
+				</div>
 			</div>
-		</div> <!-- /#messages -->
+		</div> <!-- /#help -->
 	<?php endif; ?>
 
 
@@ -38,17 +44,19 @@
 			<div class="row vertical-center">
 				<div class="container">
 
-					<div class="col-xs-12">
+					<div class="content-block">
+						<div class="col-xs-12 logo">
 
-						<?php if ($logo): ?>
-							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-								<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-							</a> <!-- /#logo -->
-						<?php endif; ?>
+							<?php if ($logo): ?>
+								<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+									<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+								</a> <!-- /#logo -->
+							<?php endif; ?>
 
-					</div>
-					<div class="col-xs-12">
-						A team of self confessed geeks who are all about great digital design
+						</div>
+						<div class="col-xs-12">
+							A team of self confessed geeks who are all about great digital design
+						</div>
 					</div>
 					
 					<a class="content-scroll-btn" href="#infographic_problem">
@@ -222,21 +230,38 @@
 					
 					<h1>Clients</h1>
 
-					<div class="arrow-container">
-						<!-- place arrows here -->
-						<a href="javascript:void(0)"><span class="left-carousel-arrow"></span></a>
-						<a href="javascript:void(0)"><span class="right-carousel-arrow"></span></a>
+					<!-- hide for small + medium, show for large  -->
+					<div class="hidden-xs hidden-sm hidden-md">
+						<div class="arrow-container">
+							<!-- place arrows here -->
+							<a href="javascript:void(0)"><span class="left-carousel-arrow"></span></a>
+							<a href="javascript:void(0)"><span class="right-carousel-arrow"></span></a>
+						</div>
 					</div>
 
 					<div class="row inner-container">
 						<div class="col-xs-12 col-lg-4 client-img-block">
 							<img src="sites/all/themes/geek_label/images/tpg-logo.png" alt="The Photographers Gallery Logo">
 						</div>
-						<div class="col-xs-12 col-lg-4 client-img-block">
+						<div class="col-xs-12 col-lg-4 client-img-block hidden-xs hidden-sm hidden-md">
 							<img src="sites/all/themes/geek_label/images/tvs-logo.png" alt="The Vegan Society Logo">
 						</div>
-						<div class="col-xs-12 col-lg-4 client-img-block">
+						<div class="col-xs-12 col-lg-4 client-img-block hidden-xs hidden-sm hidden-md">
 							<img src="sites/all/themes/geek_label/images/pshe-logo.png" alt="PSHE Association Logo">
+						</div>
+					</div>
+
+					<!-- hide for large, show for small + medium -->
+					<div class="hidden-lg">
+						<div class="dot-carousel-block">
+							<input id="carousel-item-1" type="radio" name="carousel-dots" checked>
+							<label for="carousel-item-1">Go to item 1</label>
+
+							<input id="carousel-item-2" type="radio" name="carousel-dots">
+							<label for="carousel-item-2">Go to item 2</label>
+
+							<input id="carousel-item-3" type="radio" name="carousel-dots"> 
+							<label for="carousel-item-3">Go to item 3</label>
 						</div>
 					</div>
 
@@ -258,18 +283,16 @@
 		<div class="container-fluid light-gray-block">
 			<div>
 
-				<h1>How to find us</h1>
+				<!-- hide for small, show for medium + large  -->
+				<span class="hidden-xs hidden-sm"><h1>How to find us</h1></span>
 
-				<div>
-					<div class="col-xs-12 col-lg-4 client-img-block">
-						
-					</div>
-					<div class="col-xs-12 col-lg-4 client-img-block">
-						
-					</div>
-					<div class="col-xs-12 col-lg-4 client-img-block">
-						
-					</div>
+				<!-- hide for medium + large, show for small -->
+				<span class="hidden-md hidden-lg"><h1>Find us</h1></span>
+
+				<div class="map-wrapper">
+					<div id="map"></div>
+					<div class="map-shadow-top"></div>
+					<div class="map-shadow-bottom"></div>
 				</div>
 				
 				<a class="content-scroll-btn" href="#contact_section">
@@ -307,6 +330,21 @@
 							</div>
 							<button type="submit" class="btn btn-block contact-btn">Send Message!</button>
 						</form>
+
+						<div class="contact-details">
+							<!-- hide for small, show for medium + large  -->
+							<div class="hidden-xs hidden-sm">Or phone on: 01923 220121</div>
+
+							<!-- hide for medium + large, show for small -->
+							<div class="hidden-md hidden-lg">
+								<div>
+									<span class="glyphicon glyphicon-earphone contact-icon"></span>01923 220121
+								</div>
+								<div>
+									<span class="glyphicon glyphicon-envelope contact-icon"></span>info@compucorp.co.uk
+								</div>
+							</div>
+						</div>
 
 					</div>
 					

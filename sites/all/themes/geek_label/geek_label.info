@@ -14,5 +14,3 @@ scripts[] = js/production.js
 
 ; Site Regions
 regions[help] = Help
-regions[header] = Header
-regions[content] = Content

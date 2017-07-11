@@ -35,6 +35,9 @@ h1, h2, h3, h4, h5, h6 {
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0); }
 
+h1 {
+  font-size: 60px; }
+
 hr {
   border: 0;
   border-top: 1px solid #000;
@@ -70,7 +73,7 @@ hr {
     font-size: 20px;
     padding: 10px 15px; }
 
-.gl-btn, #contact_section .contact-btn {
+.gl-btn, #contact_section form .contact-btn {
   padding: 10px 15px;
   min-height: 60px;
   font-size: 20px;
@@ -111,15 +114,9 @@ hr {
     color: #ffffff; }
 
 .dot-carousel-block {
+  display: block;
   /* hiding radio button */
   /* all styling is done on the label element */ }
-  .dot-carousel-block .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #a7aeb0;
-    margin-right: 5px;
-    border-radius: 50%; }
   .dot-carousel-block .active {
     background: #414042; }
   .dot-carousel-block input[type=radio] {
@@ -129,9 +126,9 @@ hr {
     background: #a7aeb0;
     overflow: hidden;
     text-indent: -999px;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
+    width: 13px;
+    height: 13px;
+    margin-right: 13px;
     border-radius: 50%; }
     .dot-carousel-block label:hover {
       background: #d83454;
@@ -225,7 +222,8 @@ hr {
 .gl-carousel-arrow, .left-carousel-arrow, .right-carousel-arrow {
   color: #a7aeb0;
   border-color: #a7aeb0;
-  top: 55%;
+  top: 50%;
+  margin-top: 27px;
   z-index: 2; }
   .gl-carousel-arrow:active, .left-carousel-arrow:active, .right-carousel-arrow:active {
     color: #414042;
@@ -302,72 +300,150 @@ body {
   padding-top: 40px; }
   #block-user-login li {
     list-style-type: none; }
+  #block-user-login #user-login-form {
+    padding-top: 80px; }
 
-/* <<<<< styling header block >>>>> */
 /* <<<<< styling LAYOUT responsive display >>>>> */
 /* Large Devices */
 /* Medium Devices */
 /* Small Devices */
 /* Smallest Devices */
-h1 {
-  font-size: 60px; }
-
 #header_section {
   font-size: 20px;
   color: #ffffff; }
-  #header_section img {
-    max-height: 150px; }
+  #header_section .content-block {
+    max-width: 520px;
+    margin: 60px auto 0px; }
+    #header_section .content-block .logo {
+      padding-bottom: 60px; }
+      #header_section .content-block .logo img {
+        max-height: 150px; }
 
 #infographics_section {
   font-size: 30px;
   color: #414042; }
   #infographics_section img {
-    max-height: 300px; }
+    max-height: 300px;
+    margin-bottom: 60px; }
 
-#services_section .padding-block {
-  padding-bottom: 30px; }
-  #services_section .padding-block .icon {
-    padding-bottom: 50px; }
-    #services_section .padding-block .icon img {
-      max-height: 200px; }
-  #services_section .padding-block .icon-label {
-    height: 80px;
-    font-size: 18px; }
-  #services_section .padding-block:last-of-type {
-    padding-bottom: 0px; }
+#services_section .inner-container, #services_section .form-container {
+  margin-top: 90px; }
+  #services_section .inner-container .padding-block, #services_section .form-container .padding-block {
+    padding-bottom: 30px; }
+    #services_section .inner-container .padding-block .icon, #services_section .form-container .padding-block .icon {
+      padding-bottom: 50px; }
+      #services_section .inner-container .padding-block .icon img, #services_section .form-container .padding-block .icon img {
+        max-height: 200px; }
+    #services_section .inner-container .padding-block .icon-label, #services_section .form-container .padding-block .icon-label {
+      height: 80px;
+      font-size: 18px; }
+    #services_section .inner-container .padding-block:last-of-type, #services_section .form-container .padding-block:last-of-type {
+      padding-bottom: 0px; }
 
 #clients_section .client-img-block img {
   max-height: 70px; }
 
-#contact_section .contact-btn {
-  background: #d83454;
-  color: #ffffff; }
-  #contact_section .contact-btn:hover {
-    background: #c0314a; }
+#clients_section .dot-carousel-block {
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto; }
+
+#location_section {
+  width: 100%; }
+  #location_section .container-fluid {
+    padding: 0;
+    margin: 0; }
+  #location_section .map-wrapper {
+    position: relative;
+    margin-top: 150px;
+    height: 350px; }
+    #location_section .map-wrapper #map {
+      width: 100%;
+      height: 100%; }
+    #location_section .map-wrapper .map-shadow, #location_section .map-wrapper .map-shadow-top, #location_section .map-wrapper .map-shadow-bottom {
+      position: absolute;
+      width: 100%;
+      height: 25px;
+      z-index: 2; }
+    #location_section .map-wrapper .map-shadow-top {
+      -o-box-shadow: inset 0px 5px 8px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0px 5px 8px 0px rgba(0, 0, 0, 0.12);
+      top: 0; }
+    #location_section .map-wrapper .map-shadow-bottom {
+      -o-box-shadow: inset 0px -5px 8px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0px -5px 8px 0px rgba(0, 0, 0, 0.12);
+      bottom: 0; }
+
+#contact_section form {
+  margin-top: 100px; }
+  #contact_section form .contact-btn {
+    background: #d83454;
+    color: #ffffff;
+    margin-bottom: 30px; }
+    #contact_section form .contact-btn:hover {
+      background: #c0314a; }
+
+#contact_section .contact-details {
+  font-size: 20px; }
 
 /* <<<<< styling STYLE responsive display >>>>> */
 /* Small Devices */
 @media only screen and (min-width: 768px) {
-  #services_section .padding-block .icon img {
-    max-height: 100px; } }
+  h1 {
+    font-size: 50px; }
+  #services_section .inner-container, #services_section .form-container {
+    margin-top: 90px; }
+    #services_section .inner-container .padding-block .icon img, #services_section .form-container .padding-block .icon img {
+      max-height: 100px; }
+  #contact_section .contact-details {
+    font-size: 16px; }
+    #contact_section .contact-details .contact-icon {
+      font-size: 14px;
+      padding-right: 10px; } }
 
 /* Medium Devices */
 @media only screen and (min-width: 992px) {
-  #services_section .padding-block .icon img {
-    max-height: 100px; } }
+  h1 {
+    font-size: 60px; }
+  #services_section .inner-container, #services_section .form-container {
+    margin-top: 90px; }
+    #services_section .inner-container .padding-block .icon img, #services_section .form-container .padding-block .icon img {
+      max-height: 100px; }
+  #contact_section .contact-details {
+    font-size: 20px; } }
 
 /* Large Devices */
 @media only screen and (min-width: 1200px) {
-  #services_section .padding-block .icon img {
-    max-height: 200px; } }
+  #services_section .inner-container, #services_section .form-container {
+    margin-top: 90px; }
+    #services_section .inner-container .padding-block .icon img, #services_section .form-container .padding-block .icon img {
+      max-height: 200px; }
+  #contact_section .contact-details {
+    font-size: 20px; } }
 
 /* Smallest Devices */
 @media only screen and (max-width: 768px) {
-  #header_section img, #infographics_section img {
+  h1 {
+    font-size: 50px; }
+  #header_section .content-block .logo img {
+    max-height: 100px; }
+  #infographics_section img {
     width: 100%; }
-  #services_section .padding-block .icon {
-    padding-bottom: 0px; }
-    #services_section .padding-block .icon img {
-      max-height: 80px; }
-  #services_section .padding-block .icon-label {
-    text-align: left; } }
+  #services_section .inner-container, #services_section .form-container {
+    margin-top: 0px; }
+    #services_section .inner-container .padding-block .icon, #services_section .form-container .padding-block .icon {
+      padding-bottom: 0px; }
+      #services_section .inner-container .padding-block .icon img, #services_section .form-container .padding-block .icon img {
+        max-height: 65px; }
+    #services_section .inner-container .padding-block .icon-label, #services_section .form-container .padding-block .icon-label {
+      height: 65px;
+      text-align: left;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+  #contact_section .contact-details {
+    font-size: 16px; }
+    #contact_section .contact-details .contact-icon {
+      font-size: 14px;
+      padding-right: 10px; } }

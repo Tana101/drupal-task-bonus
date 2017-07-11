@@ -1,6 +1,3 @@
-h1 {
-	font-size: 60px;
-}
 
 
 
@@ -9,8 +6,17 @@ h1 {
 	font-size: 20px;
 	color: $white;
 
-	img {
-		max-height: 150px;
+	.content-block {
+		max-width: 520px;
+		margin: 60px auto 0px;
+
+		.logo {
+			padding-bottom: 60px;
+
+			img {
+				max-height: 150px;
+			}
+		}
 	}
 }
 
@@ -23,6 +29,7 @@ h1 {
 
 	img {
 		max-height: 300px;
+		margin-bottom: 60px;
 	}
 }
 
@@ -30,24 +37,28 @@ h1 {
 
 
 #services_section {
-	.padding-block {
-		padding-bottom: 30px;
+	.inner-container {
+		margin-top: 90px;
 
-		.icon {
-			img {
-				max-height: 200px;
+		.padding-block {
+			padding-bottom: 30px;
+
+			.icon {
+				img {
+					max-height: 200px;
+				}
+
+				padding-bottom: 50px;
 			}
 
-			padding-bottom: 50px;
-		}
+			.icon-label {
+				height: 80px;
+				font-size: 18px;
+			}
 
-		.icon-label {
-			height: 80px;
-			font-size: 18px;
-		}
-
-		&:last-of-type {
-			padding-bottom: 0px;
+			&:last-of-type {
+				padding-bottom: 0px;
+			}
 		}
 	}
 }
@@ -61,28 +72,83 @@ h1 {
 			max-height: 70px;
 		}
 	}
+
+	.dot-carousel-block {
+		margin-top: 100px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 
 
 
 #location_section {
-	
+	$mapHeight: 350px;
+
+	width: 100%;
+
+	.container-fluid {
+		padding: 0;
+		margin: 0;
+	}
+
+	.map-wrapper {
+		position: relative;
+		margin-top: 150px;
+		height: $mapHeight;
+
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+
+		.map-shadow {
+			position: absolute;
+			width: 100%;
+			height: 25px;
+			z-index: 2;
+		}
+
+		.map-shadow-top {
+			@extend .map-shadow;
+			@include el-shadow(inset 0px 5px 8px 0px rgba(0, 0, 0, 0.12));
+
+			top: 0;
+		}
+
+		.map-shadow-bottom {
+			@extend .map-shadow;
+			@include el-shadow(inset 0px -5px 8px 0px rgba(0, 0, 0, 0.12));
+
+			bottom: 0;
+		}
+
+	}
 }
 
 
 
 
 #contact_section {
-	.contact-btn {
-		@extend .gl-btn;
+	form {
+		margin-top: 100px;
 
-		background: $standard_red;
-		color: $white;
+		.contact-btn {
+			@extend .gl-btn;
 
-		&:hover {
-			background: $dark_red;
+			background: $standard_red;
+			color: $white;
+			margin-bottom: 30px;
+
+			&:hover {
+				background: $dark_red;
+			}
 		}
+	}
+
+	.contact-details {
+		font-size: 20px;
 	}
 }
 
@@ -93,12 +159,31 @@ h1 {
 
 /* Small Devices */
 @media only screen and (min-width : $smallScreen) {
+	h1 {
+		font-size: 50px;
+	}
+
 	#services_section {
-		.padding-block {
-			.icon {
-				img {
-					max-height: 100px;
+		.inner-container {
+			margin-top: 90px;
+
+			.padding-block {
+				.icon {
+					img {
+						max-height: 100px;
+					}
 				}
+			}
+		}
+	}
+
+	#contact_section {
+		.contact-details {
+			font-size: 16px;
+
+			.contact-icon {
+				font-size: 14px;
+				padding-right: 10px;
 			}
 		}
 	}
@@ -109,13 +194,27 @@ h1 {
 
 /* Medium Devices */
 @media only screen and (min-width : $mediumScreen) {
+	h1 {
+		font-size: 60px;
+	}
+
 	#services_section {
-		.padding-block {
-			.icon {
-				img {
-					max-height: 100px;
+		.inner-container {
+			margin-top: 90px;
+
+			.padding-block {
+				.icon {
+					img {
+						max-height: 100px;
+					}
 				}
 			}
+		}
+	}
+
+	#contact_section {
+		.contact-details {
+			font-size: 20px;
 		}
 	}
 }
@@ -126,12 +225,22 @@ h1 {
 /* Large Devices */
 @media only screen and (min-width : $largeScreen) {
 	#services_section {
-		.padding-block {
-			.icon {
-				img {
-					max-height: 200px;
+		.inner-container {
+			margin-top: 90px;
+
+			.padding-block {
+				.icon {
+					img {
+						max-height: 200px;
+					}
 				}
 			}
+		}
+	}
+
+	#contact_section {
+		.contact-details {
+			font-size: 20px;
 		}
 	}
 }
@@ -140,24 +249,56 @@ h1 {
 
 /* Smallest Devices */
 @media only screen and (max-width : $extraSmallScreen) {
-	#header_section, #infographics_section {
+	h1 {
+		font-size: 50px;
+	}
+
+	#header_section {
+		.content-block {
+			.logo {
+				img {
+					max-height: 100px;
+				}
+			}
+		}
+	}
+
+	#infographics_section {
 		img {
 			width: 100%;
 		}
 	}
 
 	#services_section {
-		.padding-block {
-			.icon {
-				img {
-					max-height: 80px;
+		.inner-container {
+			margin-top: 0px;
+
+			.padding-block {
+				.icon {
+					img {
+						max-height: 65px;
+					}
+
+					padding-bottom: 0px;
 				}
 
-				padding-bottom: 0px;
+				.icon-label {
+					height: 65px;
+					text-align: left;
+					display: flex;
+					align-items: center;
+				}
 			}
+		}
+	}
 
-			.icon-label {
-				text-align: left;
+	#contact_section {
+		.contact-details {
+			font-size: 16px;
+
+			.contact-icon {
+				font-size: 14px;
+				padding-right: 10px;
 			}
 		}
 	}
