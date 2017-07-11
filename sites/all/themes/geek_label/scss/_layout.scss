@@ -1,0 +1,125 @@
+/* <<<<< setting standard width limits that will be used responsively >>>>> */
+$extraSmallScreen: 768px;		/* Extra Small Devices 	(<768px) 	*/
+$smallScreen: 768px;			/* Small Devices 		(>=768px) 	*/
+$mediumScreen: 992px;			/* Medium Devices 		(>=992px) 	*/
+$largeScreen: 1200px;			/* Medium Devices 		(>=1200px) 	*/
+
+$innerStructureWidth: 1050px;
+
+
+
+
+/* <<<<< setting default css to be used on all key elements >>>>> */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	font-family: $museo_300;
+	text-align: center;
+}
+
+
+
+.vertical-center {
+	min-height: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+
+
+.arrow-container {
+	position: relative;
+}
+
+.inner-container {
+	display: block;
+	max-width: $innerStructureWidth;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-container {
+	@extend .inner-container;
+
+	max-width: 450px;
+}
+
+// vertically aligns child blocks in the parent
+.middle-vert-outer-wrap {
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	.middle-vert-block {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+
+
+
+/* <<<<< styling block-user-login block >>>>> */
+#block-user-login {
+	font-family: $open_sans_regular;
+	text-align: center;
+	padding-top: 40px;
+
+	li {
+		list-style-type: none;
+	}
+
+	#user-login-form {
+		padding-top: 80px;
+	}
+}
+
+
+
+
+/* <<<<< styling LAYOUT responsive display >>>>> */
+
+/* Large Devices */
+@media only screen and (min-width : $largeScreen) {
+	// style here
+}
+
+
+
+/* Medium Devices */
+@media only screen and (min-width : $mediumScreen) {
+	// style here
+}
+
+
+
+/* Small Devices */
+@media only screen and (min-width : $smallScreen) {
+	// style here
+}
+
+
+
+/* Smallest Devices */
+@media only screen and (max-width : $extraSmallScreen) {
+	// style here
+}

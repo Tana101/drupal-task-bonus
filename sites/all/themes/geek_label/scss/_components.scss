@@ -1,0 +1,377 @@
+@mixin border-radius($radius) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin el-transition($duration) {
+	-moz-transition: all $duration ease-out;
+	-webkit-transition: all $duration ease-out;
+	-ms-transition: all $duration ease-out;
+	-o-transition: all $duration ease-out;
+	transition: all $duration ease-out;
+}
+
+@mixin el-rotate($angle) {
+	-moz-transform: rotate($angle);
+	-webkit-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-o-transform: rotate($angle);
+	transform: rotate($angle);
+}
+
+@mixin el-translate($x, $y) {
+	-moz-transform: translate($x, $y);
+	-webkit-transform: translate($x, $y);
+	-ms-transform: translate($x, $y);
+	-o-transform: translate($x, $y);
+	transform: translate($x, $y);
+}
+
+@mixin el-double-transform($firstTransEl, $secondTransEl) {
+	-moz-transform: $firstTransEl $secondTransEl;
+	-webkit-transform: $firstTransEl $secondTransEl;
+	-ms-transform: $firstTransEl $secondTransEl;
+	-o-transform: $firstTransEl $secondTransEl;
+	transform: $firstTransEl $secondTransEl;
+}
+
+@mixin el-shadow($shadow_properties) {
+	-moz-box-shadow: $shadow_properties;
+	-webkit-box-shadow: $shadow_properties;
+	-o-box-shadow: $shadow_properties;
+	box-shadow: $shadow_properties;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $museo_300;
+	color: $dark_gray_text;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+
+	@include el-translate(-50%, 0);
+}
+
+h1 {
+	font-size: 60px;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #000;
+	display: block;
+	height: 1px;
+	margin: 1em 0;
+	padding: 0;
+}
+
+
+
+
+.highlight-red {
+	color: $standard_red;
+}
+
+
+
+
+.block {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
+.red-block {
+	@extend .block;
+	background: $standard_red;
+}
+
+.light-gray-block {
+	@extend .block;
+	background: $light_gray_panel;
+}
+
+.white-block {
+	@extend .block;
+	background: $white;
+}
+
+
+
+
+.form-group {
+	margin-bottom: 20px;
+
+	.form-control {
+		border: 2px solid $medium_gray_border;
+		min-height: 60px;
+		color: $dark_gray_text;
+		font-size: 20px;
+		padding: 10px 15px;
+	}
+}
+
+.gl-btn {
+	padding: 10px 15px;
+	min-height: 60px;
+	font-size: 20px;
+
+	@include el-transition(0.4s);
+}
+
+
+
+
+
+.block-content {
+	padding: 40px 0;
+}
+
+.btn {
+	a {
+		display: block;
+		background: none;
+		font-family: $museo_500;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		padding: 10px 24px;
+		border: 2px solid #000;
+
+		@include border-radius(3px);
+
+		&:hover {
+			@include el-transition(0.4s);
+		}
+	}
+}
+
+.btn-hollow {
+	@extend .btn;
+
+	a {
+		background: none;
+		border-color: $standard_red;
+		color: $standard_red;
+
+		&:hover {
+			background: $dark_red;
+			color: $white;
+		}
+	}
+}
+
+.btn-full {
+	@extend .btn;
+
+	a {
+		background: $standard_red;
+		border-color: $standard_red;
+		color: $white;
+
+		&:hover {
+			background: $dark_red;
+			color: $white;
+		}
+	}
+}
+
+.dot-carousel-block {
+	display: block;
+	
+	.active {
+		background: $dark_gray_text;
+	}
+
+	/* hiding radio button */
+	input[type=radio] {
+		display: none;
+	}
+
+	/* all styling is done on the label element */
+	label {
+		display: inline-block;
+		background: $light_gray_carousel_el;
+		overflow: hidden;
+		text-indent: -999px;
+		width: 13px;
+		height: 13px;
+		margin-right: 13px;
+
+		@include border-radius(50%);
+
+		&:hover {
+			background: $standard_red;
+			cursor: pointer;
+		}
+	}
+	
+	input:checked + label {
+		background: $dark_gray_text;
+	}
+
+	&:hover {
+		cursor: default;
+	}
+}
+
+
+
+
+.gl-chevron-arrow {
+	display: block;
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	color: $light_gray_carousel_el;
+	border-color: $light_gray_carousel_el;
+	border-bottom: 2px solid;
+	border-left: 2px solid;
+}
+
+
+
+
+.gl-circle-btn {
+	$circleSize : 48px; /* The size of the round button */
+
+	position: absolute;
+	z-index: 3;
+	background: none;
+	width: $circleSize;
+	height: $circleSize;
+	left: 50%;
+	bottom: 50px;
+	border: 4px solid $white;
+
+	@include border-radius(50%);
+	@include el-translate(-50%, 0);
+	@include el-transition(0.4s);
+
+	.inner-circle {
+		$circSizeDiff : 7px;
+
+		background: #000;
+		position: absolute;
+		width: $circleSize - $circSizeDiff;
+		height: $circleSize - $circSizeDiff;
+		top: 50%;
+		left: 50%;
+
+		@include border-radius(50%);
+		@include el-translate(-50%, -50%);
+		@include el-transition(0.4s);
+
+		/* inherits .gl-chevron-arrow */
+		.bottom-block-arrow {
+			@extend .gl-chevron-arrow;
+
+			position: absolute;
+			top: 45%;
+			left: 50%;
+
+			@include el-double-transform(translate(-50%, -50%), rotate(-45deg));
+			@include el-transition(0.4s);
+		}
+	}
+
+	.circle-shadow {
+		$shadowSize : $circleSize;
+
+		position: absolute;
+		background: none;
+		width: $shadowSize;
+		height: $shadowSize;
+		top: -2px;
+		left: 50%;
+
+		@include el-shadow(0px 0px 10px 1px rgba(0,0,0,0.2));
+		@include border-radius(50%);
+		@include el-translate(-50%, 0);
+	}
+}
+
+/* styling round button appearance */
+.gl-full-red-round-btn {
+	@extend .gl-circle-btn;
+
+	border: 2px solid $white;
+
+	.inner-circle {
+		background: $standard_red;
+
+		.bottom-block-arrow {
+			color: $white;
+			border-color: $white;
+		}
+
+		&:hover {
+			background: $dark_red;
+		}
+	}
+}
+
+.gl-hollow-dark-round-btn {
+	@extend .gl-circle-btn;
+
+	border: 2px solid $dark_gray_text;
+
+	.inner-circle {
+		background: none;
+
+		.bottom-block-arrow {
+			color: $dark_gray_text;
+			border-color: $dark_gray_text;
+		}
+
+		&:hover {
+			background: $dark_red;
+
+			.bottom-block-arrow {
+				color: $white;
+				border-color: $white;
+			}
+		}
+	}
+}
+
+
+
+
+/* inherits .gl-chevron-arrow */
+.gl-carousel-arrow {
+	@extend .gl-chevron-arrow;
+
+	color: $light_gray_carousel_el;
+	border-color: $light_gray_carousel_el;
+	top: 50%;
+	margin-top: 27px;
+	z-index: 2;
+
+	&:active {
+		color: $dark_gray_text;
+		border-color: $dark_gray_text;
+	}
+}
+
+.left-carousel-arrow {
+	@extend .gl-carousel-arrow;
+	@include el-rotate(45deg);
+
+	left: 48px;
+}
+
+.right-carousel-arrow {
+	@extend .gl-carousel-arrow;
+	@include el-rotate(-135deg);
+
+	right: 48px;
+}

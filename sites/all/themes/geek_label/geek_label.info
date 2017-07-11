@@ -1,0 +1,16 @@
+
+name = Geek Label
+description = A theme for an organisation that hosts events in London about open source software and solution for charities.
+core = 7.x
+
+
+; Site Stylesheet
+stylesheets[all][] = css/app.css
+
+
+; Site JS
+scripts[] = js/production.js
+
+
+; Site Regions
+regions[help] = Help
