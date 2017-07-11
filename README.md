@@ -8,6 +8,8 @@ This Drupal 7 project was created to match the Geek Label designs
 - I did not use regions for the structure of this drupal site because it is a single page website. After I did some research on Drupal's best practices, I concluded that this may be the best and simplest way of implementing an SPA. As a result, all of the HTML was placed in the *page.tpl.php*
 - Again, I tried to add as much detail as I could see, and this time I got a chance to work with some Javascript for the *scroll to next* buttons.
 - I enjoyed working on this site because the CSS framework (Bootstrap 3) sped things up a great deal.
+- I used Gulp + SASS to create my preprocessed CSS and minified JS.
+- My stylesheets lean significantly, towards the SMACSS methodology.
 
 
 ## Unique Features
